@@ -1,0 +1,14 @@
+{
+  "name": "reboot-computer-health-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual computer troubleshooting assistant for an IT infrastructure class project.",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
