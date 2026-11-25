@@ -113,4 +113,11 @@ REBOOT/
 
 Proyecto académico grupal de Infraestructura TI.
 
-Completar con los nombres de los cuatro integrantes, curso y fecha de entrega.
+Integrantes:
+
+- Elder Cruzado
+- Vicente Quiroz
+- Pascal Diaz
+- Cesar Ramirez
+
+Curso y fecha de entrega: completar.
