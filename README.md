@@ -120,4 +120,5 @@ Integrantes:
 - Pascal Diaz
 - Cesar Ramirez
 
-Curso y fecha de entrega: completar.
+**Curso:** 3ro TP  
+**Fecha de entrega:** 25-11-2026
