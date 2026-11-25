@@ -1,36 +1,380 @@
+
 window.REBOOT_DIAGNOSTICS = {
-categories:{
-slow:{es:"Lentitud del sistema",en:"System slowdown",icon:"◴",questions:[
-{es:"¿Cuándo notas más la lentitud?",en:"When do you notice the slowdown?",options:[["always","Todo el tiempo","All the time"],["startup","Al iniciar el computador","During startup"],["apps","Al abrir varias aplicaciones","When opening several apps"],["browser","Al navegar por internet","While browsing"]]},
-{es:"¿Cuántas aplicaciones sueles tener abiertas?",en:"How many apps do you usually keep open?",options:[["few","Una o dos","One or two"],["several","Varias aplicaciones","Several apps"],["many","Muchas al mismo tiempo","Many at once"]]},
-{es:"¿Has notado poco espacio disponible?",en:"Have you noticed low storage space?",options:[["yes","Sí, queda poco espacio","Yes, very little space left"],["no","No, tengo espacio suficiente","No, there is enough space"],["unsure","No estoy seguro/a","I'm not sure"]]}]},
-network:{es:"Problema de conexión",en:"Connection issue",icon:"⌁",questions:[
-{es:"¿Qué ocurre con tu conexión?",en:"What happens to your connection?",options:[["none","No tengo internet","No internet access"],["slow","La conexión es muy lenta","The connection is very slow"],["drops","Se desconecta constantemente","It keeps disconnecting"],["one","Solo falla en una aplicación","Only one app has issues"]]},
-{es:"¿Otros dispositivos pueden conectarse a la misma red?",en:"Can other devices connect to the same network?",options:[["yes","Sí, funcionan normalmente","Yes, they work normally"],["no","No, tampoco funcionan","No, they cannot"],["unsure","No lo he comprobado","I haven't checked"]]},
-{es:"¿Cómo te conectas?",en:"How are you connected?",options:[["wifi","Wi-Fi","Wi-Fi"],["ethernet","Cable de red","Ethernet cable"],["both","Ambos / No estoy seguro","Both / Not sure"]]}]},
-startup:{es:"Problema de inicio",en:"Startup issue",icon:"⏻",questions:[
-{es:"¿Qué sucede al encender el computador?",en:"What happens when you turn on the computer?",options:[["slow","Inicia, pero tarda mucho","It starts, but takes a long time"],["loop","Se reinicia repetidamente","It keeps restarting"],["black","La pantalla queda negra","The screen stays black"],["error","Aparece un mensaje de error","An error message appears"]]},
-{es:"¿El problema comenzó después de una actualización o cambio?",en:"Did it begin after an update or change?",options:[["yes","Sí, después de un cambio","Yes, after a change"],["no","No, ocurrió de repente","No, it happened suddenly"],["unsure","No estoy seguro/a","I'm not sure"]]},
-{es:"¿Puedes acceder al escritorio?",en:"Can you reach the desktop?",options:[["yes","Sí, puedo entrar","Yes, I can"],["sometimes","A veces","Sometimes"],["no","No puedo entrar","No, I cannot"]] }]},
-storage:{es:"Poco espacio de almacenamiento",en:"Low storage space",icon:"▤",questions:[
-{es:"¿Qué mensaje o situación observas?",en:"What message or situation do you see?",options:[["warning","Aviso de poco espacio","Low-space warning"],["updates","No puedo instalar actualizaciones","I cannot install updates"],["files","No puedo guardar archivos","I cannot save files"]]},
-{es:"¿Has revisado qué ocupa más espacio?",en:"Have you checked what uses the most space?",options:[["yes","Sí","Yes"],["no","Todavía no","Not yet"]]},
-{es:"¿El disco está casi lleno?",en:"Is the drive almost full?",options:[["yes","Sí, queda muy poco","Yes, very little is free"],["no","No","No"],["unsure","No lo sé","I don't know"]] }]},
-overheating:{es:"Temperatura elevada",en:"High temperature",icon:"♨",questions:[
-{es:"¿Cuándo notas más calor?",en:"When do you notice the most heat?",options:[["gaming","Al jugar o usar programas exigentes","While gaming or using demanding apps"],["idle","Incluso sin usar programas","Even when idle"],["charging","Mientras está cargando","While charging"]]},
-{es:"¿Cómo se comporta el ventilador?",en:"How does the fan behave?",options:[["loud","Suena muy fuerte","It is very loud"],["normal","Suena normal","It sounds normal"],["unknown","No lo sé","I don't know"]]},
-{es:"¿Dónde está ubicado el computador?",en:"Where is the computer placed?",options:[["soft","Sobre una cama, tela o superficie blanda","On a bed, fabric, or soft surface"],["desk","Sobre un escritorio despejado","On a clear desk"],["blocked","Con las salidas de aire obstruidas","With air vents blocked"]]}]},
-other:{es:"Otro síntoma",en:"Other symptom",icon:"＋",questions:[
-{es:"¿Qué área parece estar afectada?",en:"Which area seems affected?",options:[["display","Pantalla o imagen","Display or image"],["sound","Audio o micrófono","Audio or microphone"],["peripheral","Teclado, mouse u otro periférico","Keyboard, mouse, or another peripheral"],["software","Programa o sistema operativo","An app or operating system"]]},
-{es:"¿El problema ocurre siempre?",en:"Does the issue happen every time?",options:[["always","Sí, siempre","Yes, every time"],["sometimes","Solo algunas veces","Only sometimes"],["once","Ocurrió una vez","It happened once"]]},
-{es:"¿Has probado reiniciar el equipo?",en:"Have you tried restarting the device?",options:[["yes","Sí","Yes"],["no","No","No"]]}]}
-},
-solutions:[
-{id:"slow",icon:"◴",es:{title:"Mejorar un computador lento",desc:"Revisa aplicaciones de inicio, procesos abiertos y espacio disponible.",steps:["Guarda tu trabajo y cierra las aplicaciones que no estés utilizando.","Abre el administrador de tareas o monitor de actividad y observa qué procesos consumen más recursos.","Revisa las aplicaciones configuradas para iniciarse automáticamente y desactiva solo las que reconozcas y no necesites.","Comprueba que exista espacio libre suficiente en el almacenamiento.","Reinicia el equipo y compara el comportamiento. Si continúa lento, solicita una revisión técnica."]},en:{title:"Improve a slow computer",desc:"Review startup apps, running processes, and available storage.",steps:["Save your work and close apps you are not using.","Open Task Manager or Activity Monitor and check which processes use the most resources.","Review startup apps and disable only those you recognize and do not need.","Check that enough storage space is available.","Restart and compare performance. If it remains slow, seek technical support."]}},
-{id:"network",icon:"⌁",es:{title:"Recuperar conexión a internet",desc:"Comprueba si el problema está en el equipo, router o proveedor.",steps:["Comprueba si otros dispositivos pueden navegar usando la misma red.","Verifica que el modo avión esté desactivado y que Wi-Fi o Ethernet estén habilitados.","Acércate al router o revisa que el cable de red esté bien conectado.","Reinicia el router solo si tienes autorización y puedes hacerlo sin interrumpir a otras personas.","Si varios dispositivos siguen sin conexión, contacta al administrador de red o proveedor."]},en:{title:"Restore internet connectivity",desc:"Check whether the issue is with the device, router, or provider.",steps:["Check whether other devices can browse on the same network.","Make sure airplane mode is off and Wi-Fi or Ethernet is enabled.","Move closer to the router or check that the network cable is connected.","Restart the router only if you are authorized and it will not disrupt others.","If multiple devices remain offline, contact the network administrator or provider."]}},
-{id:"startup",icon:"⏻",es:{title:"Resolver problemas de inicio",desc:"Identifica cambios recientes y evita acciones que puedan poner en riesgo tus archivos.",steps:["Desconecta periféricos externos no esenciales y vuelve a intentar iniciar.","Anota cualquier mensaje o código de error que aparezca.","Si el equipo inicia, respalda tus archivos importantes antes de realizar cambios.","Si comenzó después de una actualización, utiliza las opciones oficiales de recuperación del sistema operativo.","Si aparece una pantalla negra persistente o reinicios repetidos, solicita asistencia técnica."]},en:{title:"Troubleshoot startup problems",desc:"Identify recent changes and avoid actions that could put files at risk.",steps:["Disconnect non-essential external peripherals and try starting again.","Write down any error message or code shown.","If the computer starts, back up important files before making changes.","If it began after an update, use the operating system's official recovery options.","If a persistent black screen or repeated restarts occur, seek technical support."]}},
-{id:"storage",icon:"▤",es:{title:"Liberar espacio de almacenamiento",desc:"Encuentra archivos grandes y libera espacio sin borrar datos importantes.",steps:["Revisa el uso del almacenamiento desde la configuración del sistema.","Vacía la papelera solo después de revisar su contenido.","Desinstala aplicaciones que reconozcas y ya no utilices.","Mueve archivos personales a un respaldo confiable si tienes autorización.","No elimines carpetas del sistema ni archivos cuyo propósito desconozcas."]},en:{title:"Free up storage space",desc:"Find large files and free space without deleting important data.",steps:["Review storage usage in system settings.","Empty the recycle bin only after checking its contents.","Uninstall apps you recognize and no longer use.","Move personal files to a trusted backup if authorized.","Do not delete system folders or files you do not understand."]}},
-{id:"overheating",icon:"♨",es:{title:"Reducir el calentamiento",desc:"Mejora la ventilación y reconoce cuándo se necesita una revisión.",steps:["Guarda tu trabajo y cierra aplicaciones exigentes si el equipo está muy caliente.","Coloca el computador sobre una superficie firme y despejada.","Asegúrate de que las rejillas de ventilación no estén cubiertas.","No introduzcas objetos ni líquidos en las salidas de aire.","Si se apaga solo, huele a quemado o el calor es extremo, deja de usarlo y solicita revisión técnica."]},en:{title:"Reduce overheating",desc:"Improve airflow and recognize when inspection is needed.",steps:["Save your work and close demanding apps if the device is very hot.","Place the computer on a firm, clear surface.","Make sure ventilation openings are not covered.","Do not insert objects or liquids into air vents.","If it shuts down unexpectedly, smells burnt, or becomes extremely hot, stop using it and seek technical inspection."]}},
-{id:"security",icon:"◇",es:{title:"Buenas prácticas de seguridad",desc:"Protege tu equipo y tus archivos con hábitos sencillos.",steps:["Instala actualizaciones desde la configuración oficial del sistema.","Utiliza contraseñas únicas y activa la autenticación multifactor cuando esté disponible.","Descarga programas solo desde fuentes oficiales y confiables.","Mantén copias de seguridad de tus archivos importantes.","No abras enlaces ni archivos inesperados de remitentes desconocidos."]},en:{title:"Security best practices",desc:"Protect your device and files with simple habits.",steps:["Install updates through the operating system's official settings.","Use unique passwords and enable multi-factor authentication where available.","Download software only from official, trusted sources.","Keep backups of important files.","Do not open unexpected links or files from unknown senders."]}}
-]
+  categories: {
+    slow: {
+      es: "Lentitud del sistema",
+      en: "System slowdown",
+      icon: "◴",
+      questions: [
+        {
+          es: "¿Cuándo notas más la lentitud?",
+          en: "When do you notice the slowdown?",
+          options: [
+            ["always", "Todo el tiempo", "All the time"],
+            ["startup", "Al iniciar el computador", "During startup"],
+            ["apps", "Al abrir varias aplicaciones", "When opening several apps"],
+            ["browser", "Al navegar por internet", "While browsing"]
+          ]
+        },
+        {
+          es: "¿Cuántas aplicaciones sueles tener abiertas?",
+          en: "How many apps do you usually keep open?",
+          options: [
+            ["few", "Una o dos", "One or two"],
+            ["several", "Varias aplicaciones", "Several apps"],
+            ["many", "Muchas al mismo tiempo", "Many at once"]
+          ]
+        },
+        {
+          es: "¿Has notado poco espacio disponible?",
+          en: "Have you noticed low storage space?",
+          options: [
+            ["yes", "Sí, queda poco espacio", "Yes, very little space left"],
+            ["no", "No, tengo espacio suficiente", "No, there is enough space"],
+            ["unsure", "No estoy seguro/a", "I'm not sure"]
+          ]
+        }
+      ]
+    },
+
+    network: {
+      es: "Problema de conexión",
+      en: "Connection issue",
+      icon: "⌁",
+      questions: [
+        {
+          es: "¿Qué ocurre con tu conexión?",
+          en: "What happens to your connection?",
+          options: [
+            ["none", "No tengo internet", "No internet access"],
+            ["slow", "La conexión es muy lenta", "The connection is very slow"],
+            ["drops", "Se desconecta constantemente", "It keeps disconnecting"],
+            ["one", "Solo falla en una aplicación", "Only one app has issues"]
+          ]
+        },
+        {
+          es: "¿Otros dispositivos pueden conectarse a la misma red?",
+          en: "Can other devices connect to the same network?",
+          options: [
+            ["yes", "Sí, funcionan normalmente", "Yes, they work normally"],
+            ["no", "No, tampoco funcionan", "No, they cannot"],
+            ["unsure", "No lo he comprobado", "I haven't checked"]
+          ]
+        },
+        {
+          es: "¿Cómo te conectas?",
+          en: "How are you connected?",
+          options: [
+            ["wifi", "Wi-Fi", "Wi-Fi"],
+            ["ethernet", "Cable de red", "Ethernet cable"],
+            ["both", "Ambos / No estoy seguro", "Both / Not sure"]
+          ]
+        }
+      ]
+    },
+
+    startup: {
+      es: "Problema de inicio",
+      en: "Startup issue",
+      icon: "⏻",
+      questions: [
+        {
+          es: "¿Qué sucede al encender el computador?",
+          en: "What happens when you turn on the computer?",
+          options: [
+            ["slow", "Inicia, pero tarda mucho", "It starts, but takes a long time"],
+            ["loop", "Se reinicia repetidamente", "It keeps restarting"],
+            ["black", "La pantalla queda negra", "The screen stays black"],
+            ["error", "Aparece un mensaje de error", "An error message appears"]
+          ]
+        },
+        {
+          es: "¿El problema comenzó después de una actualización o cambio?",
+          en: "Did it begin after an update or change?",
+          options: [
+            ["yes", "Sí, después de un cambio", "Yes, after a change"],
+            ["no", "No, ocurrió de repente", "No, it happened suddenly"],
+            ["unsure", "No estoy seguro/a", "I'm not sure"]
+          ]
+        },
+        {
+          es: "¿Puedes acceder al escritorio?",
+          en: "Can you reach the desktop?",
+          options: [
+            ["yes", "Sí, puedo entrar", "Yes, I can"],
+            ["sometimes", "A veces", "Sometimes"],
+            ["no", "No puedo entrar", "No, I cannot"]
+          ]
+        }
+      ]
+    },
+
+    storage: {
+      es: "Poco espacio de almacenamiento",
+      en: "Low storage space",
+      icon: "▤",
+      questions: [
+        {
+          es: "¿Qué mensaje o situación observas?",
+          en: "What message or situation do you see?",
+          options: [
+            ["warning", "Aviso de poco espacio", "Low-space warning"],
+            ["updates", "No puedo instalar actualizaciones", "I cannot install updates"],
+            ["files", "No puedo guardar archivos", "I cannot save files"]
+          ]
+        },
+        {
+          es: "¿Has revisado qué ocupa más espacio?",
+          en: "Have you checked what uses the most space?",
+          options: [
+            ["yes", "Sí", "Yes"],
+            ["no", "Todavía no", "Not yet"]
+          ]
+        },
+        {
+          es: "¿El disco está casi lleno?",
+          en: "Is the drive almost full?",
+          options: [
+            ["yes", "Sí, queda muy poco", "Yes, very little is free"],
+            ["no", "No", "No"],
+            ["unsure", "No lo sé", "I don't know"]
+          ]
+        }
+      ]
+    },
+
+    overheating: {
+      es: "Temperatura elevada",
+      en: "High temperature",
+      icon: "♨",
+      questions: [
+        {
+          es: "¿Cuándo notas más calor?",
+          en: "When do you notice the most heat?",
+          options: [
+            ["gaming", "Al jugar o usar programas exigentes", "While gaming or using demanding apps"],
+            ["idle", "Incluso sin usar programas", "Even when idle"],
+            ["charging", "Mientras está encendido y trabajando", "While powered on and working"]
+          ]
+        },
+        {
+          es: "¿Cómo se comporta el ventilador?",
+          en: "How does the fan behave?",
+          options: [
+            ["loud", "Suena muy fuerte", "It is very loud"],
+            ["normal", "Suena normal", "It sounds normal"],
+            ["unknown", "No lo sé", "I don't know"]
+          ]
+        },
+        {
+          es: "¿Dónde está ubicado el computador?",
+          en: "Where is the computer placed?",
+          options: [
+            ["soft", "Sobre una cama, tela o superficie blanda", "On a bed, fabric, or soft surface"],
+            ["desk", "Sobre un escritorio despejado", "On a clear desk"],
+            ["blocked", "Con las salidas de aire obstruidas", "With air vents blocked"]
+          ]
+        }
+      ]
+    },
+
+    other: {
+      es: "Otro síntoma",
+      en: "Other symptom",
+      icon: "＋",
+      questions: [
+        {
+          es: "¿Qué área parece estar afectada?",
+          en: "Which area seems affected?",
+          options: [
+            ["display", "Pantalla o imagen", "Display or image"],
+            ["sound", "Audio o micrófono", "Audio or microphone"],
+            ["peripheral", "Teclado, mouse u otro periférico", "Keyboard, mouse, or another peripheral"],
+            ["software", "Programa o sistema operativo", "An app or operating system"]
+          ]
+        },
+        {
+          es: "¿El problema ocurre siempre?",
+          en: "Does the issue happen every time?",
+          options: [
+            ["always", "Sí, siempre", "Yes, every time"],
+            ["sometimes", "Solo algunas veces", "Only sometimes"],
+            ["once", "Ocurrió una vez", "It happened once"]
+          ]
+        },
+        {
+          es: "¿Has probado reiniciar el equipo?",
+          en: "Have you tried restarting the device?",
+          options: [
+            ["yes", "Sí", "Yes"],
+            ["no", "No", "No"]
+          ]
+        }
+      ]
+    }
+  },
+
+  solutions: [
+    {
+      id: "slow",
+      icon: "◴",
+      es: {
+        title: "Mejorar un computador lento",
+        desc: "Revisa aplicaciones de inicio, procesos abiertos y espacio disponible.",
+        steps: [
+          "Guarda tu trabajo y cierra las aplicaciones que no estés utilizando.",
+          "Abre el administrador de tareas y observa qué procesos consumen más recursos.",
+          "Revisa las aplicaciones configuradas para iniciarse automáticamente y desactiva solo las que reconozcas y no necesites.",
+          "Comprueba que exista espacio libre suficiente en el almacenamiento.",
+          "Reinicia el equipo y compara el comportamiento. Si continúa lento, solicita una revisión técnica."
+        ]
+      },
+      en: {
+        title: "Improve a slow computer",
+        desc: "Review startup apps, running processes, and available storage.",
+        steps: [
+          "Save your work and close apps you are not using.",
+          "Open Task Manager and check which processes use the most resources.",
+          "Review startup apps and disable only those you recognize and do not need.",
+          "Check that enough storage space is available.",
+          "Restart and compare performance. If it remains slow, seek technical support."
+        ]
+      }
+    },
+
+    {
+      id: "network",
+      icon: "⌁",
+      es: {
+        title: "Recuperar conexión a internet",
+        desc: "Comprueba si el problema está en el equipo, router o proveedor.",
+        steps: [
+          "Comprueba si otros dispositivos pueden navegar usando la misma red.",
+          "Verifica que el modo avión esté desactivado y que Wi-Fi o Ethernet estén habilitados.",
+          "Acércate al router o revisa que el cable de red esté bien conectado.",
+          "Reinicia el router solo si tienes autorización y puedes hacerlo sin interrumpir a otras personas.",
+          "Si varios dispositivos siguen sin conexión, contacta al administrador de red o proveedor."
+        ]
+      },
+      en: {
+        title: "Restore internet connectivity",
+        desc: "Check whether the issue is with the device, router, or provider.",
+        steps: [
+          "Check whether other devices can browse on the same network.",
+          "Make sure airplane mode is off and Wi-Fi or Ethernet is enabled.",
+          "Move closer to the router or check that the network cable is connected.",
+          "Restart the router only if you are authorized and it will not disrupt others.",
+          "If multiple devices remain offline, contact the network administrator or provider."
+        ]
+      }
+    },
+
+    {
+      id: "startup",
+      icon: "⏻",
+      es: {
+        title: "Resolver problemas de inicio",
+        desc: "Identifica cambios recientes y evita acciones que puedan poner en riesgo tus archivos.",
+        steps: [
+          "Desconecta periféricos externos no esenciales y vuelve a intentar iniciar.",
+          "Anota cualquier mensaje o código de error que aparezca.",
+          "Si el equipo inicia, respalda tus archivos importantes antes de realizar cambios.",
+          "Si comenzó después de una actualización, utiliza las opciones oficiales de recuperación del sistema operativo.",
+          "Si aparece una pantalla negra persistente o reinicios repetidos, solicita asistencia técnica."
+        ]
+      },
+      en: {
+        title: "Troubleshoot startup problems",
+        desc: "Identify recent changes and avoid actions that could put files at risk.",
+        steps: [
+          "Disconnect non-essential external peripherals and try starting again.",
+          "Write down any error message or code shown.",
+          "If the computer starts, back up important files before making changes.",
+          "If it began after an update, use the operating system's official recovery options.",
+          "If a persistent black screen or repeated restarts occur, seek technical support."
+        ]
+      }
+    },
+
+    {
+      id: "storage",
+      icon: "▤",
+      es: {
+        title: "Liberar espacio de almacenamiento",
+        desc: "Encuentra archivos grandes y libera espacio sin borrar datos importantes.",
+        steps: [
+          "Revisa el uso del almacenamiento desde la configuración del sistema.",
+          "Vacía la papelera solo después de revisar su contenido.",
+          "Desinstala aplicaciones que reconozcas y ya no utilices.",
+          "Mueve archivos personales a un respaldo confiable si tienes autorización.",
+          "No elimines carpetas del sistema ni archivos cuyo propósito desconozcas."
+        ]
+      },
+      en: {
+        title: "Free up storage space",
+        desc: "Find large files and free space without deleting important data.",
+        steps: [
+          "Review storage usage in system settings.",
+          "Empty the recycle bin only after checking its contents.",
+          "Uninstall apps you recognize and no longer use.",
+          "Move personal files to a trusted backup if authorized.",
+          "Do not delete system folders or files you do not understand."
+        ]
+      }
+    },
+
+    {
+      id: "overheating",
+      icon: "♨",
+      es: {
+        title: "Reducir el calentamiento",
+        desc: "Mejora la ventilación y reconoce cuándo se necesita una revisión.",
+        steps: [
+          "Guarda tu trabajo y cierra aplicaciones exigentes si el equipo está muy caliente.",
+          "Coloca el computador sobre una superficie firme y despejada.",
+          "Asegúrate de que las rejillas de ventilación no estén cubiertas.",
+          "No introduzcas objetos ni líquidos en las salidas de aire.",
+          "Si se apaga solo, huele a quemado o el calor es extremo, deja de usarlo y solicita revisión técnica."
+        ]
+      },
+      en: {
+        title: "Reduce overheating",
+        desc: "Improve airflow and recognize when inspection is needed.",
+        steps: [
+          "Save your work and close demanding apps if the device is very hot.",
+          "Place the computer on a firm, clear surface.",
+          "Make sure ventilation openings are not covered.",
+          "Do not insert objects or liquids into air vents.",
+          "If it shuts down unexpectedly, smells burnt, or becomes extremely hot, stop using it and seek technical inspection."
+        ]
+      }
+    },
+
+    {
+      id: "security",
+      icon: "◇",
+      es: {
+        title: "Buenas prácticas de seguridad",
+        desc: "Protege tu equipo y tus archivos con hábitos sencillos.",
+        steps: [
+          "Instala actualizaciones desde la configuración oficial del sistema.",
+          "Utiliza contraseñas únicas y activa la autenticación multifactor cuando esté disponible.",
+          "Descarga programas solo desde fuentes oficiales y confiables.",
+          "Mantén copias de seguridad de tus archivos importantes.",
+          "No abras enlaces ni archivos inesperados de remitentes desconocidos."
+        ]
+      },
+      en: {
+        title: "Security best practices",
+        desc: "Protect your device and files with simple habits.",
+        steps: [
+          "Install updates through the operating system's official settings.",
+          "Use unique passwords and enable multi-factor authentication where available.",
+          "Download software only from official, trusted sources.",
+          "Keep backups of important files.",
+          "Do not open unexpected links or files from unknown senders."
+        ]
+      }
+    }
+  ]
 };
