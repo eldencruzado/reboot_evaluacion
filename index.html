@@ -1,126 +1,428 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d18">
-  <meta name="description" content="REBOOT: asistente bilingüe de diagnóstico y mantenimiento informático.">
-  <title>REBOOT — Computer Health Assistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="REBOOT: médico de computadores. Identifica problemas de tu PC y encuentra soluciones guiadas.">
+  <title>REBOOT | Médico de computadores</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="app-shell">
-  <aside class="sidebar" id="sidebar">
-    <a class="brand" href="#" aria-label="REBOOT home">
-      <span class="brand-icon">R<span>.</span></span>
-      <span class="brand-copy"><strong>REBOOT</strong><small>COMPUTER HEALTH AI</small></span>
-    </a>
-    <div class="side-label" data-i18n="workspace">WORKSPACE</div>
-    <nav class="nav-list" aria-label="Main navigation">
-      <button class="nav-item active" data-view="dashboard"><span class="nav-icon">▦</span><span data-i18n="navDashboard">Dashboard</span></button>
-      <button class="nav-item" data-view="diagnosis"><span class="nav-icon">⌕</span><span data-i18n="navDiagnosis">Smart diagnosis</span><b class="nav-tag">AI</b></button>
-      <button class="nav-item" data-view="solutions"><span class="nav-icon">✧</span><span data-i18n="navSolutions">Solution center</span></button>
-      <button class="nav-item" data-view="history"><span class="nav-icon">◷</span><span data-i18n="navHistory">History</span></button>
-      <button class="nav-item" data-view="monitor"><span class="nav-icon">▥</span><span data-i18n="navMonitor">Hardware monitor</span></button>
-    </nav>
-    <div class="sidebar-bottom">
-      <div class="system-status"><span class="pulse-dot"></span><span data-i18n="localEngine">LOCAL ENGINE ONLINE</span></div>
-      <div class="profile-row"><div class="profile-avatar">IT</div><div><strong data-i18n="operator">IT Operator</strong><small data-i18n="demoMode">Demo workspace</small></div><span class="profile-more">•••</span></div>
-    </div>
-  </aside>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-view="dashboard">
+        <span class="brand-icon">R<span>↻</span></span>
+        <span class="brand-copy">
+          <strong>REBOOT</strong>
+          <small>PC HEALTH CENTER</small>
+        </span>
+      </a>
 
-  <main class="main-area">
-    <header class="topbar">
-      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
-      <div class="crumb"><span>REBOOT</span><i>/</i><strong id="pageCrumb">DASHBOARD</strong></div>
-      <div class="topbar-actions">
-        <span class="environment"><i></i><span data-i18n="simulatedEnvironment">SAFE ENVIRONMENT</span></span>
-        <button class="language-button" id="languageButton" aria-label="Change language">ES <span>⌄</span></button>
-      </div>
-    </header>
+      <div class="side-label" data-i18n="workspace">ESPACIO DE TRABAJO</div>
 
-    <section class="view active" id="view-dashboard">
-      <div class="page-heading">
-        <div><p class="eyebrow" data-i18n="overviewEyebrow">SYSTEM OVERVIEW</p><h1 data-i18n="welcome">Your computer, understood.</h1><p class="muted" data-i18n="welcomeSub">A clear starting point to understand your computer's health.</p></div>
-        <button class="button primary" data-go="diagnosis"><span>＋</span><span data-i18n="newDiagnosis">New diagnosis</span></button>
-      </div>
-      <div class="notice-banner"><span class="notice-symbol">✦</span><div><strong data-i18n="welcomeBannerTitle">Welcome to your diagnostic station</strong><p data-i18n="welcomeBannerText">Run a guided check, learn what may be happening, and explore safe next steps.</p></div><span class="banner-code">RB / 01</span></div>
-      <div class="stats-grid">
-        <article class="stat-card"><div class="stat-top"><span data-i18n="diagnosticsRun">DIAGNOSTICS RUN</span><span class="stat-icon cyan">⌕</span></div><strong id="statTotal">0</strong><small data-i18n="allTime">All-time sessions</small></article>
-        <article class="stat-card"><div class="stat-top"><span data-i18n="issuesFound">ISSUES IDENTIFIED</span><span class="stat-icon violet">◇</span></div><strong id="statIssues">0</strong><small data-i18n="basedOnChecks">Based on your checks</small></article>
-        <article class="stat-card"><div class="stat-top"><span data-i18n="resolvedLabel">RESOLVED</span><span class="stat-icon green">✓</span></div><strong id="statResolved">0</strong><small data-i18n="markedByYou">Marked as resolved by you</small></article>
-        <article class="stat-card"><div class="stat-top"><span data-i18n="lastCheck">LAST CHECK</span><span class="stat-icon orange">◷</span></div><strong class="last-check" id="statLast">—</strong><small data-i18n="mostRecentSession">Most recent session</small></article>
-      </div>
-      <div class="dashboard-grid">
-        <article class="panel quick-panel">
-          <div class="panel-heading"><div><p class="eyebrow" data-i18n="quickStart">QUICK START</p><h2 data-i18n="whatTroubleshoot">What needs attention?</h2></div><span class="heading-mark">01</span></div>
-          <div class="quick-options">
-            <button class="quick-option" data-diagnosis="slow"><span class="quick-icon">◴</span><span><strong data-i18n="slowComputer">My computer is slow</strong><small data-i18n="slowComputerSub">Performance and responsiveness</small></span><b>→</b></button>
-            <button class="quick-option" data-diagnosis="network"><span class="quick-icon">⌁</span><span><strong data-i18n="networkProblem">Internet or network issue</strong><small data-i18n="networkProblemSub">Connection and stability</small></span><b>→</b></button>
-            <button class="quick-option" data-diagnosis="startup"><span class="quick-icon">⏻</span><span><strong data-i18n="startupProblem">Startup problem</strong><small data-i18n="startupProblemSub">Boot and loading behavior</small></span><b>→</b></button>
-            <button class="quick-option" data-diagnosis="storage"><span class="quick-icon">▤</span><span><strong data-i18n="storageProblem">Storage is almost full</strong><small data-i18n="storageProblemSub">Disk space and files</small></span><b>→</b></button>
-            <button class="quick-option" data-diagnosis="overheating"><span class="quick-icon">♨</span><span><strong data-i18n="overheatingProblem">Computer gets hot</strong><small data-i18n="overheatingProblemSub">Temperature and airflow</small></span><b>→</b></button>
-            <button class="quick-option" data-diagnosis="other"><span class="quick-icon">＋</span><span><strong data-i18n="otherProblem">Something else</strong><small data-i18n="otherProblemSub">Explore another symptom</small></span><b>→</b></button>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="dashboard">
+          <span class="nav-icon">⌂</span>
+          <span data-i18n="navDashboard">Panel general</span>
+        </button>
+        <button class="nav-item" data-view="myPC">
+          <span class="nav-icon">▣</span>
+          <span data-i18n="navMyPC">Buscar mi PC</span>
+        </button>
+        <button class="nav-item" data-view="diagnosis">
+          <span class="nav-icon">⌕</span>
+          <span data-i18n="navDiagnosis">Diagnóstico guiado</span>
+        </button>
+        <button class="nav-item" data-view="solutions">
+          <span class="nav-icon">✧</span>
+          <span data-i18n="navSolutions">Centro de soluciones</span>
+        </button>
+        <button class="nav-item" data-view="history">
+          <span class="nav-icon">◷</span>
+          <span data-i18n="navHistory">Historial</span>
+        </button>
+        <button class="nav-item" data-view="monitor">
+          <span class="nav-icon">▤</span>
+          <span data-i18n="navMonitor">Componentes</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="system-status">
+          <span class="pulse-dot"></span>
+          <span data-i18n="localEngine">MOTOR LOCAL ACTIVO</span>
+        </div>
+        <div class="profile-row">
+          <div class="profile-avatar">IT</div>
+          <div>
+            <strong data-i18n="operator">Operador TI</strong>
+            <small>REBOOT v1.0</small>
           </div>
-        </article>
-        <article class="panel recent-panel">
-          <div class="panel-heading"><div><p class="eyebrow" data-i18n="activity">ACTIVITY</p><h2 data-i18n="recentDiagnoses">Recent diagnoses</h2></div><button class="text-link" data-go="history" data-i18n="viewAll">View all →</button></div>
-          <div id="dashboardHistory" class="recent-list"><div class="empty-state"><span>◷</span><strong data-i18n="noDiagnoses">No diagnoses yet</strong><p data-i18n="startFirst">Your diagnostic activity will appear here.</p></div></div>
-          <div class="privacy-note"><span>⌑</span><span data-i18n="privacyNote">Your history stays in this browser on this device.</span></div>
-        </article>
+          <span class="profile-more">•••</span>
+        </div>
       </div>
-      <div class="disclaimer"><strong data-i18n="important">IMPORTANT</strong><span data-i18n="disclaimer">REBOOT provides educational guidance, not a certified hardware test or a substitute for a qualified technician.</span></div>
-    </section>
+    </aside>
 
-    <section class="view" id="view-diagnosis">
-      <div class="page-heading"><div><p class="eyebrow" data-i18n="diagnosticEngine">DIAGNOSTIC ENGINE</p><h1 data-i18n="smartDiagnosisTitle">Let's find the cause.</h1><p class="muted" data-i18n="smartDiagnosisSub">Answer a few questions. REBOOT will organize possible causes and safe next steps.</p></div><span class="mode-pill"><span class="pulse-dot"></span><span data-i18n="rulesEngine">RULES ENGINE READY</span></span></div>
-      <div class="diagnosis-layout">
-        <article class="panel wizard-panel">
-          <div class="wizard-progress"><div><span id="stepLabel">STEP 1 OF 3</span><span id="stepPercent">33%</span></div><div class="progress-track"><span id="stepProgress"></span></div></div>
-          <div id="wizardContent"></div>
-          <div class="wizard-footer"><button class="button ghost" id="backStep" disabled data-i18n="back">← Back</button><button class="button primary" id="nextStep" data-i18n="continue">Continue →</button></div>
-        </article>
-        <aside class="panel assistant-panel"><div class="assistant-orb">R<span>✦</span></div><p class="eyebrow" data-i18n="rebootAssistant">REBOOT ASSISTANT</p><h3 data-i18n="guidedNotGuessing">Guided, not guessing.</h3><p class="muted" data-i18n="assistantDescription">The local diagnostic engine uses your answers to match common symptoms with possible causes. It does not make changes to your device.</p><div class="assistant-capabilities"><span>✓ <span data-i18n="noSystemChanges">No system changes</span></span><span>✓ <span data-i18n="transparentResults">Transparent results</span></span><span>✓ <span data-i18n="actionableSteps">Actionable next steps</span></span></div></aside>
-      </div>
-    </section>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">☰</button>
+        <div class="crumb">
+          REBOOT <i>/</i>
+          <strong id="breadcrumb" data-i18n="navDashboard">Panel general</strong>
+        </div>
+        <div class="topbar-actions">
+          <span class="environment">
+            <i></i>
+            <span data-i18n="simulatedEnvironment">ENTORNO SEGURO</span>
+          </span>
+          <button class="language-button" id="languageButton">
+            ES <span>↔ EN</span>
+          </button>
+        </div>
+      </header>
 
-    <section class="view" id="view-solutions">
-      <div class="page-heading"><div><p class="eyebrow" data-i18n="knowledgeBase">KNOWLEDGE BASE</p><h1 data-i18n="solutionCenter">Solution center</h1><p class="muted" data-i18n="solutionSub">Practical, beginner-friendly steps for common computer issues.</p></div></div>
-      <div class="solution-search"><span>⌕</span><input id="solutionSearch" type="search" data-i18n-placeholder="searchSolutions" placeholder="Search solutions..."></div>
-      <div class="solution-grid" id="solutionGrid"></div>
-    </section>
+      <!-- PANEL GENERAL -->
+      <section class="view active" id="view-dashboard">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" data-i18n="overviewEyebrow">RESUMEN DEL SISTEMA</p>
+            <h1 data-i18n="welcome">El médico de tu computador.</h1>
+            <p class="subheading" data-i18n="welcomeSub">Identifica problemas, conoce tu equipo y encuentra posibles soluciones.</p>
+          </div>
+          <button class="button primary" data-action="new-diagnosis">
+            <span>＋</span>
+            <span data-i18n="newDiagnosis">Nuevo diagnóstico</span>
+          </button>
+        </div>
 
-    <section class="view" id="view-history">
-      <div class="page-heading"><div><p class="eyebrow" data-i18n="yourActivity">YOUR ACTIVITY</p><h1 data-i18n="diagnosticHistory">Diagnostic history</h1><p class="muted" data-i18n="historySub">Review previous sessions and track what you have resolved.</p></div><button class="button ghost" id="clearHistory" data-i18n="clearHistory">Clear history</button></div>
-      <div id="historyList" class="history-list"></div>
-    </section>
+        <div class="notice-banner">
+          <div class="notice-symbol">✚</div>
+          <div>
+            <strong data-i18n="welcomeBannerTitle">Bienvenido a REBOOT</strong>
+            <p data-i18n="welcomeBannerText">Cuéntanos qué ocurre con tu PC y te guiaremos.</p>
+          </div>
+          <span class="banner-code">REBOOT / PC-01</span>
+        </div>
 
-    <section class="view" id="view-monitor">
-      <div class="page-heading"><div><p class="eyebrow" data-i18n="deviceInsights">DEVICE INSIGHTS</p><h1 data-i18n="hardwareMonitor">Hardware monitor</h1><p class="muted" data-i18n="monitorSub">Understand key components and what their metrics mean.</p></div><span class="mode-pill"><span class="pulse-dot"></span><span data-i18n="browserMode">BROWSER MODE</span></span></div>
-      <div class="monitor-warning"><span>ⓘ</span><p data-i18n="monitorLimit">A regular website cannot freely read CPU temperature, exact RAM use, or disk health. These cards explain the metrics; values are examples, not live hardware readings.</p></div>
-      <div class="hardware-grid">
-        <article class="hardware-card"><div class="hardware-symbol">CPU</div><div><span data-i18n="processor">PROCESSOR</span><h2 data-i18n="cpuMeaning">The computer's brain</h2><p data-i18n="cpuDesc">Runs instructions and calculations. High sustained load can make the system feel slow.</p></div><div class="hardware-footer"><span data-i18n="metricExplainer">METRIC EXPLAINER</span><strong>Usage · Temperature</strong></div></article>
-        <article class="hardware-card"><div class="hardware-symbol">RAM</div><div><span data-i18n="memory">MEMORY</span><h2 data-i18n="ramMeaning">Short-term workspace</h2><p data-i18n="ramDesc">Holds data used by open apps. Too little available memory may cause slowdowns.</p></div><div class="hardware-footer"><span data-i18n="metricExplainer">METRIC EXPLAINER</span><strong>Used · Available</strong></div></article>
-        <article class="hardware-card"><div class="hardware-symbol">SSD</div><div><span data-i18n="storage">STORAGE</span><h2 data-i18n="storageMeaning">Long-term data space</h2><p data-i18n="storageDesc">Stores files and applications. Very low free space can affect updates and performance.</p></div><div class="hardware-footer"><span data-i18n="metricExplainer">METRIC EXPLAINER</span><strong>Capacity · Free space</strong></div></article>
-        <article class="hardware-card"><div class="hardware-symbol">GPU</div><div><span data-i18n="graphics">GRAPHICS</span><h2 data-i18n="gpuMeaning">Visual processing</h2><p data-i18n="gpuDesc">Renders images, video and 3D workloads. Driver or thermal issues may affect graphics.</p></div><div class="hardware-footer"><span data-i18n="metricExplainer">METRIC EXPLAINER</span><strong>Usage · Temperature</strong></div></article>
-      </div>
-    </section>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span data-i18n="diagnosticsRun">DIAGNÓSTICOS REALIZADOS</span>
+              <span class="stat-icon cyan">⌕</span>
+            </div>
+            <strong id="statTotal">0</strong>
+            <small data-i18n="allTime">Sesiones totales</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span data-i18n="issuesFound">PROBLEMAS IDENTIFICADOS</span>
+              <span class="stat-icon violet">◇</span>
+            </div>
+            <strong id="statIssues">0</strong>
+            <small data-i18n="basedOnChecks">Según tus revisiones</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span data-i18n="resolvedLabel">RESUELTOS</span>
+              <span class="stat-icon green">✓</span>
+            </div>
+            <strong id="statResolved">0</strong>
+            <small data-i18n="markedByYou">Marcados como resueltos por ti</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span data-i18n="lastCheck">ÚLTIMA REVISIÓN</span>
+              <span class="stat-icon orange">◷</span>
+            </div>
+            <strong class="last-check" id="statLast">—</strong>
+            <small data-i18n="mostRecentSession">Sesión más reciente</small>
+          </article>
+        </div>
 
-    <footer class="app-footer"><span>REBOOT <i>•</i> COMPUTER HEALTH ASSISTANT</span><span data-i18n="footerNote">Educational simulator · Local-first experience</span></footer>
-  </main>
-</div>
+        <div class="dashboard-grid">
+          <section class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow" data-i18n="quickStart">INICIO RÁPIDO</p>
+                <h2 data-i18n="whatTroubleshoot">¿Qué necesita atención?</h2>
+              </div>
+              <span class="heading-mark">01 / 06</span>
+            </div>
 
-<dialog id="resultDialog" class="result-dialog">
-  <div class="result-header"><span class="result-kicker" data-i18n="diagnosisComplete">DIAGNOSIS COMPLETE</span><button class="icon-button" id="closeResult" aria-label="Close">✕</button></div>
-  <div id="resultContent"></div>
-</dialog>
-<dialog id="solutionDialog" class="result-dialog"><div class="result-header"><span class="result-kicker" data-i18n="solutionGuide">SOLUTION GUIDE</span><button class="icon-button" id="closeSolution" aria-label="Close">✕</button></div><div id="solutionContent"></div></dialog>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="js/translations.js"></script>
-<script src="js/diagnostics.js"></script>
-<script src="js/app.js"></script>
+            <div class="quick-options">
+              <button class="quick-option" data-diagnosis="slow">
+                <span class="quick-icon">◴</span>
+                <span><strong data-i18n="slowComputer">Mi PC está lento</strong><small data-i18n="slowComputerSub">Rendimiento y respuesta</small></span>
+                <b>→</b>
+              </button>
+              <button class="quick-option" data-diagnosis="network">
+                <span class="quick-icon">⌁</span>
+                <span><strong data-i18n="networkProblem">Problemas de internet</strong><small data-i18n="networkProblemSub">Conexión y estabilidad</small></span>
+                <b>→</b>
+              </button>
+              <button class="quick-option" data-diagnosis="startup">
+                <span class="quick-icon">⏻</span>
+                <span><strong data-i18n="startupProblem">Problemas al iniciar</strong><small data-i18n="startupProblemSub">Arranque y carga</small></span>
+                <b>→</b>
+              </button>
+              <button class="quick-option" data-diagnosis="storage">
+                <span class="quick-icon">▤</span>
+                <span><strong data-i18n="storageProblem">Poco espacio disponible</strong><small data-i18n="storageProblemSub">Disco y almacenamiento</small></span>
+                <b>→</b>
+              </button>
+              <button class="quick-option" data-diagnosis="overheating">
+                <span class="quick-icon">♨</span>
+                <span><strong data-i18n="overheatingProblem">Mi PC se calienta</strong><small data-i18n="overheatingProblemSub">Temperatura y ventilación</small></span>
+                <b>→</b>
+              </button>
+              <button class="quick-option" data-diagnosis="other">
+                <span class="quick-icon">＋</span>
+                <span><strong data-i18n="otherProblem">Otro problema</strong><small data-i18n="otherProblemSub">Explorar otro síntoma</small></span>
+                <b>→</b>
+              </button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow" data-i18n="activity">ACTIVIDAD</p>
+                <h2 data-i18n="recentDiagnoses">Diagnósticos recientes</h2>
+              </div>
+              <button class="text-link" data-view="history" data-i18n="viewAll">Ver todos →</button>
+            </div>
+            <div class="recent-list" id="recentList"></div>
+            <div class="privacy-note">
+              <span>◇</span>
+              <span data-i18n="privacyNote">Tu historial permanece en este navegador y dispositivo.</span>
+            </div>
+          </section>
+        </div>
+
+        <div class="disclaimer">
+          <strong data-i18n="important">IMPORTANTE</strong>
+          <span data-i18n="disclaimer">REBOOT entrega orientación educativa.</span>
+        </div>
+      </section>
+
+      <!-- BUSCAR MI PC -->
+      <section class="view" id="view-myPC">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">IDENTIFICACIÓN DEL EQUIPO</p>
+            <h1 data-i18n="myPC">Buscar mi PC</h1>
+            <p class="subheading" data-i18n="myPCSub">Selecciona la marca de tu computador de escritorio para conocer mejor tu equipo.</p>
+          </div>
+        </div>
+
+        <div class="device-layout">
+          <section class="panel device-form-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">PC IDENTIFICATION</p>
+                <h2 data-i18n="pcInfoTitle">Conoce tu computador</h2>
+              </div>
+              <span class="heading-mark">01 / PC</span>
+            </div>
+
+            <p class="muted" data-i18n="pcInfoSub">La información de tu equipo ayudará a contextualizar las recomendaciones.</p>
+
+            <form id="pcForm" class="pc-form">
+              <label for="pcBrand" data-i18n="pcBrand">MARCA DEL COMPUTADOR</label>
+              <select id="pcBrand" required>
+                <option value="" data-i18n="selectBrand">Selecciona una marca</option>
+                <option value="HP">HP</option>
+                <option value="Dell">Dell</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="ASUS">ASUS</option>
+                <option value="Acer">Acer</option>
+                <option value="MSI">MSI</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Gigabyte">Gigabyte</option>
+                <option value="PC armado" data-i18n="assembledPC">PC armado por componentes</option>
+                <option value="Otra marca" data-i18n="otherBrand">Otra marca</option>
+                <option value="No lo sé" data-i18n="unknownBrand">No conozco mi marca</option>
+              </select>
+
+              <label for="pcModel" data-i18n="pcModel">MODELO DEL COMPUTADOR</label>
+              <input id="pcModel" type="text" maxlength="80" placeholder="Ejemplo: Pavilion, OptiPlex, Legion..." data-i18n-placeholder="modelPlaceholder">
+              <small data-i18n="pcHelp">¿No sabes qué modelo tienes? Puedes dejar ese campo vacío.</small>
+
+              <button class="button primary" type="submit">
+                <span>✓</span>
+                <span data-i18n="savePC">Guardar mi PC</span>
+              </button>
+            </form>
+          </section>
+
+          <section class="panel device-preview-panel">
+            <div class="device-illustration">▣</div>
+            <p class="eyebrow" data-i18n="savedPC">MI COMPUTADOR</p>
+            <div id="pcPreview">
+              <h2 data-i18n="noPC">Todavía no has registrado tu PC.</h2>
+              <p class="muted" data-i18n="noPCSub">Agrega la marca y el modelo para identificar tu equipo.</p>
+            </div>
+            <button type="button" class="button ghost" id="editPCButton" hidden data-i18n="editPC">Editar equipo</button>
+          </section>
+        </div>
+
+        <div class="disclaimer">
+          <strong data-i18n="important">IMPORTANTE</strong>
+          <span>La selección de marca y modelo sirve para orientar el diagnóstico. No identifica automáticamente los componentes internos.</span>
+        </div>
+      </section>
+
+      <!-- DIAGNÓSTICO -->
+      <section class="view" id="view-diagnosis">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" data-i18n="diagnosticEngine">MOTOR DE DIAGNÓSTICO</p>
+            <h1 data-i18n="smartDiagnosisTitle">Vamos a revisar tu PC.</h1>
+            <p class="subheading" data-i18n="smartDiagnosisSub">Responde algunas preguntas para identificar posibles causas y conocer los próximos pasos.</p>
+          </div>
+          <span class="mode-pill"><i class="pulse-dot"></i><span data-i18n="rulesEngine">MOTOR DE REGLAS ACTIVO</span></span>
+        </div>
+
+        <div class="diagnosis-layout">
+          <section class="panel wizard-panel">
+            <div class="wizard-progress">
+              <div>
+                <span id="stepLabel">PASO 1 DE 3</span>
+                <span id="stepPercent">33%</span>
+              </div>
+              <div class="progress-track"><span id="stepProgress"></span></div>
+            </div>
+            <div id="wizardContent"></div>
+            <div class="wizard-footer">
+              <button class="button ghost" id="backStep" data-i18n="back">← Atrás</button>
+              <button class="button primary" id="nextStep" data-i18n="continue">Continuar →</button>
+            </div>
+          </section>
+
+          <aside class="panel assistant-panel">
+            <div class="assistant-orb">R<span>+</span></div>
+            <p class="eyebrow" data-i18n="rebootAssistant">ASISTENTE REBOOT</p>
+            <h3 data-i18n="guidedNotGuessing">Revisamos antes de concluir.</h3>
+            <p class="muted" data-i18n="assistantDescription">El sistema analiza tus respuestas y las relaciona con problemas informáticos frecuentes.</p>
+            <div class="assistant-capabilities">
+              <span>✓ <span data-i18n="noSystemChanges">No modifica el sistema</span></span>
+              <span>✓ <span data-i18n="transparentResults">Resultados explicables</span></span>
+              <span>✓ <span data-i18n="actionableSteps">Pasos de solución</span></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SOLUCIONES -->
+      <section class="view" id="view-solutions">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" data-i18n="knowledgeBase">BASE DE CONOCIMIENTO</p>
+            <h1 data-i18n="solutionCenter">Centro de soluciones</h1>
+            <p class="subheading" data-i18n="solutionSub">Guías sencillas para comprender y resolver problemas comunes de computadores.</p>
+          </div>
+        </div>
+        <div class="solution-search">
+          <span>⌕</span>
+          <input type="search" id="solutionSearch" data-i18n-placeholder="searchSolutions" placeholder="Buscar soluciones...">
+        </div>
+        <div class="solution-grid" id="solutionGrid"></div>
+      </section>
+
+      <!-- HISTORIAL -->
+      <section class="view" id="view-history">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" data-i18n="yourActivity">TU ACTIVIDAD</p>
+            <h1 data-i18n="diagnosticHistory">Historial de diagnósticos</h1>
+            <p class="subheading" data-i18n="historySub">Revisa tus diagnósticos anteriores.</p>
+          </div>
+          <button class="button ghost" id="clearHistory" data-i18n="clearHistory">Borrar historial</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      </section>
+
+      <!-- COMPONENTES -->
+      <section class="view" id="view-monitor">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow" data-i18n="deviceInsights">INFORMACIÓN DEL EQUIPO</p>
+            <h1 data-i18n="hardwareMonitor">Componentes del PC</h1>
+            <p class="subheading" data-i18n="monitorSub">Conoce los componentes principales de tu computador.</p>
+          </div>
+        </div>
+
+        <div class="monitor-warning">
+          <span>ⓘ</span>
+          <p data-i18n="monitorLimit">REBOOT no puede medir directamente la temperatura del procesador ni el uso exacto de RAM desde el navegador.</p>
+        </div>
+
+        <div class="hardware-grid">
+          <article class="hardware-card">
+            <div class="hardware-symbol">CPU</div>
+            <div>
+              <span data-i18n="processor">PROCESADOR</span>
+              <h2 data-i18n="cpuMeaning">El cerebro del computador</h2>
+              <p data-i18n="cpuDesc">Ejecuta instrucciones y cálculos.</p>
+            </div>
+            <div class="hardware-footer"><span>CPU / CORE</span><strong>Componente principal</strong></div>
+          </article>
+
+          <article class="hardware-card">
+            <div class="hardware-symbol">RAM</div>
+            <div>
+              <span data-i18n="memory">MEMORIA RAM</span>
+              <h2 data-i18n="ramMeaning">Espacio de trabajo temporal</h2>
+              <p data-i18n="ramDesc">Almacena temporalmente los datos de las aplicaciones abiertas.</p>
+            </div>
+            <div class="hardware-footer"><span>MEMORY / DDR</span><strong>Memoria temporal</strong></div>
+          </article>
+
+          <article class="hardware-card">
+            <div class="hardware-symbol">SSD</div>
+            <div>
+              <span data-i18n="storage">ALMACENAMIENTO</span>
+              <h2 data-i18n="storageMeaning">Espacio para tus datos</h2>
+              <p data-i18n="storageDesc">Guarda archivos y aplicaciones.</p>
+            </div>
+            <div class="hardware-footer"><span>STORAGE / DRIVE</span><strong>Datos y archivos</strong></div>
+          </article>
+
+          <article class="hardware-card">
+            <div class="hardware-symbol">GPU</div>
+            <div>
+              <span data-i18n="graphics">TARJETA GRÁFICA</span>
+              <h2 data-i18n="gpuMeaning">Procesamiento visual</h2>
+              <p data-i18n="gpuDesc">Procesa imágenes, videos y gráficos 3D.</p>
+            </div>
+            <div class="hardware-footer"><span>GRAPHICS / GPU</span><strong>Procesamiento visual</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>REBOOT <i>•</i> <span data-i18n="footerNote">Médico de computadores</span></span>
+        <span>LOCAL DIAGNOSTIC SYSTEM <i>•</i> v1.0</span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- VENTANA DE RESULTADOS -->
+  <dialog class="result-dialog" id="resultDialog">
+    <div id="resultContent"></div>
+  </dialog>
+
+  <!-- VENTANA DE SOLUCIONES -->
+  <dialog class="result-dialog" id="solutionDialog">
+    <div id="solutionContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/diagnostics.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
